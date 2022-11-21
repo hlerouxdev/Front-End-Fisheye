@@ -14,18 +14,3 @@ class Api {
           .catch(err => console.log('an error occurs', err))
   }
 }
-
-
-// class PhotographersApi extends Api {
-//   /**
-//    * 
-//    * @param {string} url 
-//    */
-//   constructor(url) {
-//       super(url)
-//   }
-
-//   async getPhotographers() {
-//       return await this.get()
-//   }
-// }

@@ -5,6 +5,9 @@ body {
     margin: 0;
 }
 
+a, a:hover {
+    text-decoration: none;
+}
 
 header {
     display: flex;
@@ -37,6 +40,12 @@ h1 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.photographer_section article a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .photographer_section article h2 {
