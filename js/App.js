@@ -21,11 +21,9 @@ class App {
         } else if (window.location.href.includes("photographer.html")) {
             //launches code related to the photographer page
             const photographerId = window.location.href.split("id=")[1]
-            // console.log(photographerId);
             const header = document.querySelector(".photograph-header")
 
             const photographersData = await this.photographersApi.get()
-            // console.log(photographersData.photographers)
 
             let pagePhotographer
             photographersData.photographers.map(singlePhotographer => {
@@ -37,11 +35,18 @@ class App {
                 if (media.photographerId == photographerId) images.push(new Photograph(media))
             })
 
-            console.log(pagePhotographer);
-            console.log(images);
-            const headerTemplate = new PhotographerPage(pagePhotographer, images)
+            const gallery = document.querySelector(".photograph-content-media")
+
+            // console.log(pagePhotographer);
+            // console.log(images);
+            const headerTemplate = new PhotographerPage(pagePhotographer)
             header.prepend(headerTemplate.createPhotographerHeaderInfos())
-            header.appendChild(headerTemplate.createPhotographerHeaderPortrait())
+            header.append(headerTemplate.createPhotographerHeaderPortrait())
+
+            images.forEach(image => {
+                const imageBox = new PhotographerMedia(image)
+                gallery.append(imageBox.createImage())
+            })
         } else {
             const mainElem = document.querySelector("main")
             mainElem.innerHTML = "Oops 404 Not Found"

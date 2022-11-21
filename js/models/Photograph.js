@@ -22,7 +22,7 @@ class Photograph {
   }
 
   get image() {
-    return "assets/images/" + this._image
+    return "assets/media/" + this._image
   }
 
   get likes() {

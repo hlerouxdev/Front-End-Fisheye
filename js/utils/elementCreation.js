@@ -6,6 +6,8 @@
  */
 function createElem(type, content) {
   const elem = document.createElement(type);
-  elem.innerText = content;
+  if(content) {
+    elem.innerText = content;
+  }
   return elem;
 }
