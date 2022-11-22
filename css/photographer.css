@@ -93,6 +93,22 @@ form input {
     margin: 20px 0;
 }
 
+.photograph-content-filter label {
+    font-weight: bold;
+}
+
+#filter {
+    border: none;
+    border-radius: 5px;
+    background-color: #911C1C;
+    color: white;
+    padding: 15px 10px;
+}
+
+#filter option {
+    margin: 5px;
+}
+
 .photograph-content-media {
     display: flex;
     width: 100%;
@@ -108,6 +124,10 @@ form input {
     height: 300px;
     width: 300px;
     object-fit: cover;
+}
+
+.image-box img:hover {
+    cursor: pointer;
 }
 
 .image-info {

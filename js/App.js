@@ -32,7 +32,7 @@ class App {
 
             let images = []
             photographersData.media.map(media => {
-                if (media.photographerId == photographerId) images.push(new Photograph(media))
+                if (media.photographerId == photographerId && media.image) images.push(new Photograph(media))
             })
 
             const gallery = document.querySelector(".photograph-content-media")
