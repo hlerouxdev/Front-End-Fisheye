@@ -1,39 +1,39 @@
 class Photograph {
   constructor(data) {
-    this._id = data.id
-    this._photographerId = data.photographerId
-    this._title = data.title
-    this._image = data.image
-    this._likes = data.likes
-    this._date = data.date
-    this._price = data.price
+    this.$id = data.id;
+    this.$photographerId = data.photographerId;
+    this.$title = data.title;
+    this.$image = data.image;
+    this.$likes = data.likes;
+    this.$date = data.date;
+    this.$price = data.price;
   }
 
   get id() {
-    return this._id
+    return this.$id;
   }
 
   get photographerId() {
-    return this.photographerId
+    return this.photographerId;
   }
 
   get title() {
-    return this._title
+    return this.$title;
   }
 
   get image() {
-    return "assets/media/" + this._image
+    return `assets/media/${this.$image}`;
   }
 
   get likes() {
-    return this._likes
+    return this.$likes;
   }
 
   get date() {
-    return this._date
+    return this.$date;
   }
 
   get price() {
-    return this._price
+    return this.$price;
   }
 }

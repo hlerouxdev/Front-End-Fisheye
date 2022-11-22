@@ -1,16 +1,16 @@
 class Api {
   /**
-   * 
-   * @param {string} url 
+   *
+   * @param {string} url
    */
   constructor(url) {
-      this._url = url
+    this.$url = url;
   }
 
   async get() {
-      return fetch(this._url)
-          .then(res => res.json())
-          .then(data => data)
-          .catch(err => console.log('an error occurs', err))
+    return fetch(this.$url)
+      .then((res) => res.json())
+      .then((data) => data)
+      .catch((err) => console.log('an error occurs', err));
   }
 }
