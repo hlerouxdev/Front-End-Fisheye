@@ -48,6 +48,10 @@ class App {
         const imageBox = new PhotographerMedia(image);
         gallery.append(imageBox.createImage());
       });
+
+      const photographerName = createElem('h2', pagePhotographer.name);
+      const formHeader = document.querySelector('.modal').querySelector('header');
+      formHeader.append(photographerName);
     } else {
       const mainElem = document.querySelector('main');
       mainElem.innerHTML = 'Oops 404 Not Found';

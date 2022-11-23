@@ -13,6 +13,10 @@
     align-items: center;
 }
 
+.photograph-header h2 {
+    color: #911C1C;
+}
+
 .photograph-header img {
     width: 200px;
     height: 200px;
@@ -43,21 +47,37 @@
     justify-content: space-between;
     padding: 35px;
     margin: auto;
+    max-width: 669px;
+    position: fixed;
+    bottom: 50%;
+    left: 50%;
+    margin-bottom: -450px;
+    margin-left: -335px;
 }
 
 .modal header {
+    position: relative;
     justify-content: space-between;
+    padding: 0;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    margin-bottom: 100px;
 }
 
 .modal header img {
     cursor: pointer;
+    position: absolute;
+    top: 21px;
+    right: 21px;
 }
 
 .modal header h2 {
     font-size: 64px;
     font-weight: normal;
     text-align: center;
+    margin: 0;
 }
 
 form {
@@ -150,6 +170,8 @@ form input {
 
 .image-info-likes {
     display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .image-info-likes img {

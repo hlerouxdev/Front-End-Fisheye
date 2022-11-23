@@ -10,7 +10,7 @@ class PhotographerMedia {
 
   createImage() {
     const imageBox = createElem('div');
-    imageBox.setAttribute('class', 'image-box');
+    imageBox.classList.add('image-box');
     imageBox.setAttribute('data-id', this.$id);
 
     const imageElem = createElem('img');
@@ -18,12 +18,14 @@ class PhotographerMedia {
     imageElem.setAttribute('alt', this.$title);
 
     const imageInfo = createElem('div');
-    imageInfo.setAttribute('class', 'image-info');
+    imageInfo.classList.add('image-info');
     const titleElem = createElem('p', this.$title);
     const likesElem = createElem('div');
     likesElem.setAttribute('class', 'image-info-likes');
     const likesNumber = createElem('p', this.$likes);
-    const likesHeart = createElem('img');
+    const likesHeart = createElem('i');
+    likesHeart.classList.add('fa-solid', 'fa-heart');
+    likesHeart.setAttribute('aria-label', 'likes');
     likesHeart.setAttribute('src', '');
 
     likesElem.appendChild(likesNumber);
