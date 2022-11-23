@@ -12,8 +12,6 @@ class App {
         (photographer) => new PhotographersFactory(photographer),
       );
 
-      console.log(photographers);
-
       photographers.forEach((photographer) => {
         const Template = new PhotographerCard(photographer);
         this.$photographersElem.appendChild(
@@ -22,11 +20,10 @@ class App {
       });
     } else if (window.location.href.includes('photographer.html')) {
       // launches code related to the photographer page
-      const photographerId = window.location.href.split('id=')[1];
+      const photographerId = +window.location.href.split('id=')[1];
       const header = document.querySelector('.photograph-header');
 
       const photographersData = await this.photographersApi.get();
-
       let pagePhotographer;
       photographersData.photographers.map((singlePhotographer) => {
         if (singlePhotographer.id === photographerId) {
@@ -43,8 +40,6 @@ class App {
 
       const gallery = document.querySelector('.photograph-content-media');
 
-      // console.log(pagePhotographer);
-      // console.log(images);
       const headerTemplate = new PhotographerPage(pagePhotographer);
       header.prepend(headerTemplate.createPhotographerHeaderInfos());
       header.append(headerTemplate.createPhotographerHeaderPortrait());

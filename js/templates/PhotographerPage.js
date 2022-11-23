@@ -8,7 +8,8 @@ class PhotographerPage {
     photographerInfo.setAttribute('class', 'photograph-header-info');
 
     const nameElem = createElem('h1', this.$photographer.name);
-    const locationElem = createElem('h2', `${this.$photographer.city}, ${this.$photographer.country}`);
+    const locationElem = createElem('h2', `${this.$photographer.city},
+      ${this.$photographer.country}`);
     const taglineElem = createElem('p', this.$photographer.tagline);
 
     photographerInfo.append(nameElem);
