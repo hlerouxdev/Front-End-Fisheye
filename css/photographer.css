@@ -4,8 +4,10 @@
 
 .photograph-header {
     background-color: #FAFAFA;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 100px;
     height: 300px;
-    margin: 0 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -86,7 +88,9 @@ form input {
 }
 
 .photograph-content {
-    margin: 0 100px;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 100px;
 }
 
 .photograph-content-filter {
@@ -116,10 +120,11 @@ form input {
     width: 100%;
     flex-wrap: wrap;
     justify-content: space-between;
+    gap: 95px;
 }
 
 .image-box {
-    max-width: 300px;
+    width: 300px;
 }
 
 .image-box img {
