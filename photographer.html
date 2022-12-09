@@ -31,8 +31,13 @@
         <div class="photograph-content-media">
         </div>
       </div>
+      <div class="info-box">
+        <p></p>
+        <p></p>
+      </div>
     </main>
     <div id="contact_modal">
+      <div class="modal-bg"></div>
       <div class="modal">
         <header>
           <h2>Contactez-moi</h2>
@@ -53,12 +58,27 @@
         </form>
       </div>
     </div>
+    <div id="slider-modal">
+      <div class="slider-modal-content">
+        <div class="slider-main">
+          <img src="assets/images/Rhode/Sport_2000_with_8.jpg" alt="" class="slider-medium">
+          <img src="assets/icons/close.svg" class="slider-close" onclick="closeSlider()"/>
+          <div class="slider-nav">
+            <i class="fa-sharp fa-solid fa-chevron-left"></i>
+            <i class="fa-sharp fa-solid fa-chevron-right"></i>
+          </div>
+          <p>test text</p>
+        </div>
+      </div>
+    </div>
+
     <!-- import fontawesome -->
     <script src="https://kit.fontawesome.com/19b5c527b2.js" crossorigin="anonymous"></script>
     
     <!-- functions -->
     <script src="js/utils/contactForm.js"></script>
     <script src="js/utils/elementCreation.js"></script>
+    <script src="js/utils/slider.js"></script>
 
     <!-- Factories -->
     <script src="js/factories/PhotographersFactory.js"></script>
@@ -66,7 +86,7 @@
 
     <!-- Models -->
     <script src="js/models/Photographer.js"></script>
-    <script src="js/models/Photograph.js"></script>
+    <script src="js/models/Medium.js"></script>
 
     <!-- Templates -->
     <script src="js/templates/PhotographerPage.js"></script>
@@ -76,7 +96,7 @@
     <script src="js/api/Api.js"></script>
 
     <!-- Entry point -->
-    <script src="js/App.js"></script>
+    <script src="js/photographer.js"></script>
   </body>
 
 </html>

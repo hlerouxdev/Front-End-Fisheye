@@ -22,7 +22,6 @@ header {
 
 h1 {
     color: #901C1C;
-    margin-right: 100px;
 }
 
 .logo {
@@ -62,15 +61,15 @@ h1 {
     margin: 0 0 5px;
 }
 
-.photographer_section article p:nth-child(3) {
+.photographer_section article p:nth-child(2) {
     color: #D3573C;
 }
 
-.photographer_section article p:nth-child(4) {
+.photographer_section article p:nth-child(3) {
     font-size: 0.8em;
 }
 
-.photographer_section article p:nth-child(5) {
+.photographer_section article p:nth-child(4) {
     color: #757575;
     font-size: 0.7em;
     font-style: italic;

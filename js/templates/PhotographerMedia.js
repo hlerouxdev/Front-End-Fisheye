@@ -1,21 +1,41 @@
-class PhotographerMedia {
-  constructor(media) {
+class MediaCard {
+  constructor(media, photographer) {
+    this.$media = media;
     this.$id = media.id;
     this.$title = media.title;
-    this.$image = media.image;
+    this.$path = media.path;
+    this.$video = media.video;
     this.$likes = media.likes;
     this.$date = media.date;
-    this.price = media.price;
+    this.$price = media.price;
+    this.$type = media.type;
+    this.$photographerName = photographer.name;
   }
 
-  createImage() {
+  createImageCard() {
+    // removes the lastname from the photographer's name
+    const firstName = this.$photographerName.substring(0, this.$photographerName.lastIndexOf(' '));
+    const filePath = `assets/images/${firstName}/${this.$path}`;
+
     const imageBox = createElem('div');
     imageBox.classList.add('image-box');
     imageBox.setAttribute('data-id', this.$id);
 
-    const imageElem = createElem('img');
-    imageElem.setAttribute('src', this.$image);
-    imageElem.setAttribute('alt', this.$title);
+    if (this.$type === 'image') {
+      const imageElem = createElem('img');
+      imageElem.setAttribute('src', filePath);
+      imageElem.setAttribute('alt', this.$title);
+      imageElem.classList.add('image-box-media');
+      imageElem.setAttribute('data-id', this.$id);
+      imageBox.appendChild(imageElem);
+    } else if (this.$type === 'video') {
+      const imageElem = createElem('video');
+      imageElem.setAttribute('src', filePath);
+      imageElem.setAttribute('alt', this.$title);
+      imageElem.classList.add('image-box-media');
+      imageElem.setAttribute('data-id', this.$id);
+      imageBox.appendChild(imageElem);
+    }
 
     const imageInfo = createElem('div');
     imageInfo.classList.add('image-info');
@@ -30,13 +50,18 @@ class PhotographerMedia {
 
     likesElem.appendChild(likesNumber);
     likesElem.appendChild(likesHeart);
-
     imageInfo.appendChild(titleElem);
     imageInfo.appendChild(likesElem);
-
-    imageBox.appendChild(imageElem);
     imageBox.appendChild(imageInfo);
 
     return imageBox;
   }
+}
+
+function openSlider(src) {
+  const modal = document.getElementById('slider-modal');
+  modal.style.display = 'block';
+
+  const medium = modal.querySelector('.slider-image');
+  medium.setAttribute('src', src);
 }

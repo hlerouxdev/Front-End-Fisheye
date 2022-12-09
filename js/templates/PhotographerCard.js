@@ -5,8 +5,6 @@ class PhotographerCard {
 
   createPhotographerCard() {
     const photographerCard = document.createElement('article');
-
-    photographerCard.setAttribute('data-id', this.$photographer.id);
     const photographerLink = document.createElement('a');
     photographerLink.setAttribute('href', `photographer.html?id=${this.$photographer.id}`);
 
