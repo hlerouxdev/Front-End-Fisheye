@@ -1,3 +1,10 @@
+import createElem from './utils/elementCreation.js';
+import Api from './api/Api.js';
+import Medium from './models/Medium.js';
+import PhotographersFactory from './factories/PhotographersFactory.js';
+import PhotographerHeader from './templates/PhotographerPage.js';
+import MediaCard from './templates/PhotographerMedia.js';
+
 const photographersApi = new Api('data/photographers.json');
 
 const photographerId = +window.location.href.split('id=')[1];

@@ -1,4 +1,6 @@
-class MediaCard {
+import createElem from '../utils/elementCreation.js';
+
+export default class MediaCard {
   constructor(media, photographer) {
     this.$media = media;
     this.$id = media.id;
@@ -56,12 +58,4 @@ class MediaCard {
 
     return imageBox;
   }
-}
-
-function openSlider(src) {
-  const modal = document.getElementById('slider-modal');
-  modal.style.display = 'block';
-
-  const medium = modal.querySelector('.slider-image');
-  medium.setAttribute('src', src);
 }

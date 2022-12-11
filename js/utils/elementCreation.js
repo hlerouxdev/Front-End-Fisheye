@@ -11,3 +11,5 @@ function createElem(type, content) {
   }
   return elem;
 }
+
+export default createElem;

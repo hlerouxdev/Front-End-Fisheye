@@ -1,4 +1,6 @@
-class PhotographerHeader {
+import createElem from '../utils/elementCreation.js';
+
+export default class PhotographerHeader {
   constructor(photographer) {
     this.$photographer = photographer;
   }

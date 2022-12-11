@@ -1,4 +1,4 @@
-class Api {
+export default class Api {
   /**
    *
    * @param {string} url

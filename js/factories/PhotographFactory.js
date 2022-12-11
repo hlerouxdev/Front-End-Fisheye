@@ -1,5 +1,11 @@
 class PhotographFactory {
   constructor(data) {
-    return new Photograph(data);
+    this.$data = data;
+  }
+
+  get() {
+    if (this.$data.type === 'video') {
+      return this.$data;
+    }
   }
 }

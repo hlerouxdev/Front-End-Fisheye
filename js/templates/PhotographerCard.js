@@ -1,4 +1,6 @@
-class PhotographerCard {
+import createElem from '../utils/elementCreation.js';
+
+export default class PhotographerCard {
   constructor(photographer) {
     this.$photographer = photographer;
   }

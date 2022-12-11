@@ -1,4 +1,4 @@
-class Medium {
+export default class Medium {
   constructor(data) {
     this.$id = data.id;
     this.$photographerId = data.photographerId;
@@ -40,7 +40,9 @@ class Medium {
   }
 
   get type() {
-    if (this.$image) return 'image';
-    if (this.$video) return 'video';
+    let type = '';
+    if (this.$image) type = 'image';
+    if (this.$video) type = 'video';
+    return type;
   }
 }
