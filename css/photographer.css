@@ -265,6 +265,7 @@ form input {
 }
 
 .slider-medium {
-    height: 80vh;
+    max-height: 80vh;
+    max-width: 80vw;
     margin: 0 50px;
 }

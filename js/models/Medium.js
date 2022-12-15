@@ -1,5 +1,5 @@
 export default class Medium {
-  constructor(data) {
+  constructor(data, firstName) {
     this.$id = data.id;
     this.$photographerId = data.photographerId;
     this.$title = data.title;
@@ -9,6 +9,7 @@ export default class Medium {
     this.$likes = data.likes;
     this.$date = data.date;
     this.$price = data.price;
+    this.$firstName = firstName;
   }
 
   get id() {
@@ -24,7 +25,7 @@ export default class Medium {
   }
 
   get path() {
-    return this.$path;
+    return `assets/images/${this.$firstName}/${this.$path}`;
   }
 
   get likes() {
@@ -40,7 +41,7 @@ export default class Medium {
   }
 
   get type() {
-    let type = '';
+    let type;
     if (this.$image) type = 'image';
     if (this.$video) type = 'video';
     return type;

@@ -9,20 +9,26 @@ const photographerId = +window.location.href.split('id=')[1];
 const header = document.querySelector('.photograph-header');
 
 const media = [];
+let firstName = '';
 
 async function main() {
   const api = new Api('data/photographers.json');
   const photographers = await api.getPhotographers();
   const photographer = new Photographer(
-    photographers.filter((data) => data.id = photographerId)[0],
+    photographers.filter((data) => data.id === photographerId)[0],
   );
+  firstName = photographer.name.substring(0, photographer.name.lastIndexOf(' '));
 
   const allMedia = await api.getMedia();
   let totalLikes = 0;
   allMedia.forEach((medium) => {
-    totalLikes += medium.likes;
-    if (photographerId === medium.photographerId) media.push(new Medium(medium));
+    if (photographerId === medium.photographerId) {
+      totalLikes += medium.likes;
+      media.push(new Medium(medium, firstName));
+    }
   });
+
+  media.sort((a, b) => b.likes - a.likes);
 
   const gallery = document.querySelector('.photograph-content-media');
 
@@ -31,7 +37,7 @@ async function main() {
   header.append(headerTemplate.createPhotographerHeaderPortrait());
 
   media.forEach((medium) => {
-    const mediumBox = new MediaCard(medium, photographer);
+    const mediumBox = new MediaCard(medium, firstName);
     gallery.append(mediumBox.createImageCard());
   });
 

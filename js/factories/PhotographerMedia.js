@@ -1,7 +1,7 @@
 import createElem from '../utils/elementCreation.js';
 
 export default class MediaCard {
-  constructor(media, photographer) {
+  constructor(media, firstName) {
     this.$media = media;
     this.$id = media.id;
     this.$title = media.title;
@@ -11,29 +11,24 @@ export default class MediaCard {
     this.$date = media.date;
     this.$price = media.price;
     this.$type = media.type;
-    this.$photographerName = photographer.name;
+    this.$firstName = firstName;
   }
 
   createImageCard() {
-    console.log(this.$media);
-    // removes the lastname from the photographer's name
-    const firstName = this.$photographerName.substring(0, this.$photographerName.lastIndexOf(' '));
-    const filePath = `assets/images/${firstName}/${this.$path}`;
-
     const imageBox = createElem('div');
     imageBox.classList.add('image-box');
     imageBox.setAttribute('data-id', this.$id);
 
     if (this.$type === 'image') {
       const imageElem = createElem('img');
-      imageElem.setAttribute('src', filePath);
+      imageElem.setAttribute('src', this.$path);
       imageElem.setAttribute('alt', this.$title);
       imageElem.classList.add('image-box-media');
       imageElem.setAttribute('data-id', this.$id);
       imageBox.appendChild(imageElem);
     } else if (this.$type === 'video') {
       const imageElem = createElem('video');
-      imageElem.setAttribute('src', filePath);
+      imageElem.setAttribute('src', this.$path);
       imageElem.setAttribute('alt', this.$title);
       imageElem.classList.add('image-box-media');
       imageElem.setAttribute('data-id', this.$id);
