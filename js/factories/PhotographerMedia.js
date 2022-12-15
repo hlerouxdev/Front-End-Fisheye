@@ -15,6 +15,7 @@ export default class MediaCard {
   }
 
   createImageCard() {
+    console.log(this.$media);
     // removes the lastname from the photographer's name
     const firstName = this.$photographerName.substring(0, this.$photographerName.lastIndexOf(' '));
     const filePath = `assets/images/${firstName}/${this.$path}`;

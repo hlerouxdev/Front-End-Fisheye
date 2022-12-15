@@ -1,22 +1,21 @@
 import Api from './api/Api.js';
-import PhotographersFactory from './factories/PhotographersFactory.js';
-import PhotographerCard from './templates/PhotographerCard.js';
+import Photographer from './models/Photographer.js';
+import PhotographerCard from './factories/PhotographerCard.js';
 
 const photographersElem = document.querySelector('.photographer_section');
 const photographersApi = new Api('data/photographers.json');
 
 async function main() {
-  const photographersData = await photographersApi.get();
-  const photographers = photographersData.photographers.map(
-    (photographer) => new PhotographersFactory(photographer),
+  const photographers = await photographersApi.getPhotographers();
+  photographers.forEach(
+    (photographer) => {
+      const photographerData = new Photographer(photographer);
+      const Template = new PhotographerCard(photographerData);
+      photographersElem.appendChild(
+        Template.createPhotographerCard(),
+      );
+    },
   );
-
-  photographers.forEach((photographer) => {
-    const Template = new PhotographerCard(photographer);
-    photographersElem.appendChild(
-      Template.createPhotographerCard(),
-    );
-  });
 }
 
 main();

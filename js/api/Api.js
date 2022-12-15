@@ -7,10 +7,17 @@ export default class Api {
     this.$url = url;
   }
 
-  async get() {
+  async getPhotographers() {
     return fetch(this.$url)
       .then((res) => res.json())
-      .then((data) => data)
+      .then((data) => data.photographers)
+      .catch((err) => console.log('an error occured', err));
+  }
+
+  async getMedia() {
+    return fetch(this.$url)
+      .then((res) => res.json())
+      .then((data) => data.media)
       .catch((err) => console.log('an error occured', err));
   }
 }
