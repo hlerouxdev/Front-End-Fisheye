@@ -264,8 +264,16 @@ form input {
     right: 0;
 }
 
+.medium-container {
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .slider-medium {
     max-height: 80vh;
-    max-width: 80vw;
+    width: 90%;
+    object-fit: scale-down;
     margin: 0 50px;
 }
