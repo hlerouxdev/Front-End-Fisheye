@@ -1,12 +1,14 @@
 import createElem from './utils/elementCreation.js';
 import Api from './api/Api.js';
-import Medium from './models/Medium.js';
+// import Medium from './models/Medium.js';
 import Photographer from './models/Photographer.js';
-import PhotographerHeader from './factories/PhotographerHeader.js';
-import MediaCard from './factories/PhotographerMedia.js';
+import PhotographerHeader from './templates/PhotographerHeader.js';
+import MediaCard from './templates/PhotographerMedia.js';
+import MediaFactory from './factories/Mediafactory.js';
 
 const photographerId = +window.location.href.split('id=')[1];
 const header = document.querySelector('.photograph-header');
+const gallery = document.querySelector('.photograph-content-media');
 
 const media = [];
 let firstName = '';
@@ -24,20 +26,20 @@ async function main() {
   allMedia.forEach((medium) => {
     if (photographerId === medium.photographerId) {
       totalLikes += medium.likes;
-      media.push(new Medium(medium, firstName));
+      media.push(new MediaFactory(medium, firstName));
     }
   });
 
-  media.sort((a, b) => b.likes - a.likes);
+  console.log(media);
 
-  const gallery = document.querySelector('.photograph-content-media');
+  media.sort((a, b) => b.likes - a.likes);
 
   const headerTemplate = new PhotographerHeader(photographer);
   header.prepend(headerTemplate.createPhotographerHeaderInfos());
   header.append(headerTemplate.createPhotographerHeaderPortrait());
 
   media.forEach((medium) => {
-    const mediumBox = new MediaCard(medium, firstName);
+    const mediumBox = new MediaCard(medium);
     gallery.append(mediumBox.createImageCard());
   });
 

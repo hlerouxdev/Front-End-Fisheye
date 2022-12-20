@@ -1,11 +1,17 @@
+import media from "../photographer.js";
+
+const filter = document.querySelector('select');
+filter.addEventListener('click', ()=> {
+  console.log(filter.options.value);
+})
+
+
 /**
  *
- * @param {array} array; the array to be worked on
  * @param {string} key; the key to use for the sort methode
  */
-export default function sortbyType(array, key) {
-  return array.sort((a, b) => {
-    const x = a[key]; const y = b[key];
-    return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-  });
-}
+// export default function sortbyType(key) {
+//   return media.sort((a, b) => b.[key] - a.[key]);
+// }
+
+// filter.options.addEventListener('change')

@@ -1,5 +1,5 @@
-import media from "../photographer.js";
-import SliderMedium from "../factories/SliderMedium.js";
+import media from '../photographer.js';
+import SliderMedium from '../templates/SliderMedium.js';
 
 const modal = document.getElementById('slider-modal');
 const mediumContainer = modal.querySelector('.medium-container');
@@ -52,7 +52,7 @@ function changeMedium(value) {
 close.addEventListener('click', closeSlider);
 
 gallery.addEventListener('click', (e) => {
-  if (e.target.attributes.class.value === 'image-box-media') {
+  if (e.target.attributes.class.value === 'image-box-medium') {
     const id = e.target.getAttribute('data-id');
     const index = media.findIndex((medium) => medium.id === Number(id));
     openSlider(media[index], index);

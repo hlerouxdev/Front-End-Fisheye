@@ -158,13 +158,13 @@ form input {
     width: 350px;
 }
 
-.image-box-media {
+.image-box-medium {
     height: 300px;
     width: 350px;
     object-fit: cover;
 }
 
-.image-box-media:hover {
+.image-box-medium:hover {
     cursor: zoom-in;
 }
 
@@ -266,6 +266,7 @@ form input {
 
 .medium-container {
     width: 80vw;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
