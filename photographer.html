@@ -28,10 +28,15 @@
             <option value="Titre">Titre</option>
           </select>
         </div>
-        <div class="photograph-content-media">
-        </div>
+        <div class="photograph-content-media"></div>
       </div>
-      <div class="info-box"></div>
+      <div class="info-box">
+        <div class="image-info-likes">
+          <p class="total-likes"></p>
+          <i class="fa-solid fa-heart" aria-label="likes"></i>
+        </div>
+        <p class="photographer-name"></p>
+      </div>
     </main>
     <div id="contact_modal">
       <div class="modal-bg"></div>
@@ -43,13 +48,13 @@
         <form>
           <div>
             <label>Prénom</label>
-            <input />
+            <input class="form-firstname"/>
             <label>Nom</label>
-            <input />
+            <input class="form-lastname"/>
             <label>Email</label>
-            <input />
+            <input class="form-email"/>
             <label>Votre message</label>
-            <input />
+            <input class="form-message"/>
           </div>
           <button class="contact_button">Envoyer</button>
         </form>
@@ -73,9 +78,9 @@
     <script src="https://kit.fontawesome.com/19b5c527b2.js" crossorigin="anonymous"></script>
 
     <!-- scripts -->
-    <script type="module" src="js/utils/mediaFilter.js"></script>
+    <!-- <script type="module" src="js/utils/mediaFilter.js"></script> -->
     <script type="module" src="js/utils/slider.js"></script>
-    <script type="module" src="js/utils/contactForm.js"></script>
+    <script src="js/utils/contactForm.js"></script>
 
     <!-- Entry point -->
     <script type="module" src="js/photographer.js"></script>

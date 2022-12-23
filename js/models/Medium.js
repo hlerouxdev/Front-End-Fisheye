@@ -1,3 +1,6 @@
+import media from '../photographer.js';
+import openSlider from '../utils/slider.js'
+
 export default class Medium {
   constructor(data, firstName) {
     this.$id = data.id;
@@ -32,8 +35,12 @@ export default class Medium {
     return this.$likes;
   }
 
+  set likes(value) {
+    this.$likes = value;
+  }
+
   get date() {
-    return this.$date;
+    return new Date(this.$date);
   }
 
   get price() {
@@ -45,5 +52,17 @@ export default class Medium {
     if (this.$image) type = 'image';
     if (this.$video) type = 'video';
     return type;
+  }
+
+  addDomInfos(elem) {
+    elem.setAttribute('src', this.path);
+    elem.setAttribute('class', 'image-box-medium');
+    elem.setAttribute('alt', this.title);
+    elem.setAttribute('data-id', this.id);
+
+    elem.addEventListener('click', () => {
+      const index = media.findIndex((medium) => medium.id === Number(this.id));
+      openSlider(media[index], index);
+    });
   }
 }

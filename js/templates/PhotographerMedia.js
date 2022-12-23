@@ -1,4 +1,5 @@
 import createElem from '../utils/elementCreation.js';
+import { computeTotalLikes } from '../photographer.js';
 
 export default class MediaCard {
   constructor(medium) {
@@ -8,47 +9,41 @@ export default class MediaCard {
   createImageCard() {
     const imageBox = createElem('div');
     imageBox.classList.add('image-box');
-    imageBox.innerHTML = `
-      ${this.$medium.createMedium()}
-      <div class="image-info">
-        <p>${this.$medium.title}</p>
-        <div class="image-info-likes">
-          <p>${this.$medium.likes}</p>
-          <i class="fa-solid fa-heart" aria-label="likes" src=""></i>
-        </div>
-      </div>
-    `;
-    // let imageElem;
-    // if (this.$type === 'image') {
-    //    imageElem = createElem('img');
-    //   imageElem.setAttribute('src', this.$medium.path);
-    //   imageElem.setAttribute('alt', this.$medium.title);
-    //   imageElem.setAttribute('data-id', this.$medium.id);
-    //   imageBox.appendChild(imageElem);
-    // } else if (this.$type === 'video') {
-    //    imageElem = createElem('img');
-    //   imageElem.setAttribute('src', this.$medium.path);
-    //   imageElem.setAttribute('alt', this.$medium.title);
-    //   imageElem.setAttribute('data-id', this.$medium.id);
-    //   imageBox.appendChild(imageElem);
-    // }
 
-    // const imageInfo = createElem('div');
-    // imageInfo.classList.add('image-info');
-    // const titleElem = createElem('p', this.$medium.title);
-    // const likesElem = createElem('div');
-    // likesElem.setAttribute('class', 'image-info-likes');
-    // const likesNumber = createElem('p', this.$medium.likes);
-    // const likesHeart = createElem('i');
-    // likesHeart.classList.add('fa-solid', 'fa-heart');
-    // likesHeart.setAttribute('aria-label', 'likes');
-    // likesHeart.setAttribute('src', '');
+    const imageInfos = document.createElement('div');
+    imageInfos.setAttribute('class', 'image-info');
+    imageInfos.innerHTML += `<p>${this.$medium.title}</p> `;
+    const imageLikes = document.createElement('div');
+    imageLikes.setAttribute('class', 'image-info-likes');
+    imageLikes.innerHTML = `<p>${this.$medium.likes}</p>`;
+    const heart = document.createElement('i');
+    heart.setAttribute('class', 'fa-regular fa-heart');
+    heart.setAttribute('aria-label', 'likes');
+    heart.setAttribute('data-liked', 'false');
+    // fa-regular fa-heart
+    heart.addEventListener('click', (e) => {
+      console.log(e.target.getAttribute('data-liked'));
+      const parentElem = e.target.parentElement;
+      if (e.target.getAttribute('data-liked') === 'false') {
+        console.log('like added');
+        e.target.setAttribute('data-liked', 'true');
+        e.target.setAttribute('class', 'fa-solid fa-heart');
+        this.$medium.likes += 1;
+      } else {
+        console.log('like removed');
+        e.target.setAttribute('data-liked', 'false');
+        e.target.setAttribute('class', 'fa-regular fa-heart');
+        this.$medium.likes -= 1;
+      }
+      parentElem.querySelector('p').innerHTML = this.$medium.likes;
+      computeTotalLikes();
+    });
 
-    // likesElem.appendChild(likesNumber);
-    // likesElem.appendChild(likesHeart);
-    // imageInfo.appendChild(titleElem);
-    // imageInfo.appendChild(likesElem);
-    // imageBox.appendChild(imageInfo);
+    imageInfos.appendChild(imageLikes);
+    imageLikes.appendChild(heart);
+
+    imageBox.appendChild(this.$medium.createMedium());
+    imageBox.appendChild(imageInfos);
 
     return imageBox;
   }

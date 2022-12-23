@@ -2,6 +2,7 @@ import media from '../photographer.js';
 import SliderMedium from '../templates/SliderMedium.js';
 
 const modal = document.getElementById('slider-modal');
+const sliderContainer = document.querySelector('.slider-main');
 const mediumContainer = modal.querySelector('.medium-container');
 const gallery = document.querySelector('.photograph-content-media');
 const title = document.querySelector('.slider-text');
@@ -16,9 +17,9 @@ function createMedium(medium, index) {
 }
 
 function openSlider(medium, index) {
-  close.focus();
   modal.style.display = 'block';
   createMedium(medium, index);
+  sliderContainer.focus();
 }
 
 function closeSlider() {
@@ -28,36 +29,20 @@ function closeSlider() {
 function changeMedium(value) {
   const currentMedium = document.querySelector('.slider-medium');
   let index = Number(currentMedium.dataset.index);
-  console.log('current index is ', index);
   if (value === 0) {
-    console.log('value is 0 no loop');
     index -= 1;
     if (index < 0) {
-      console.log('value is 0 looped');
       index = media.length - 1;
     }
   }
   if (value === 1) {
-    console.log('value is 1 no loop');
     index += 1;
     if (index > media.length - 1) {
-      console.log('value is 1 no looped');
       index = 0;
     }
   }
-  console.log('new index is', index);
   createMedium(media[index], index);
 }
-
-close.addEventListener('click', closeSlider);
-
-gallery.addEventListener('click', (e) => {
-  if (e.target.attributes.class.value === 'image-box-medium') {
-    const id = e.target.getAttribute('data-id');
-    const index = media.findIndex((medium) => medium.id === Number(id));
-    openSlider(media[index], index);
-  }
-});
 
 prev.addEventListener('click', () => {
   changeMedium(0);
@@ -65,3 +50,12 @@ prev.addEventListener('click', () => {
 next.addEventListener('click', () => {
   changeMedium(1);
 });
+
+sliderContainer.addEventListener('keydown', (e) => {
+  if (e.code == '37') console.log('left key pressed');
+  if (e.code == '39') console.log('right key pressed');
+});
+
+close.addEventListener('click', closeSlider);
+
+export default openSlider;

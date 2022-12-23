@@ -1,11 +1,24 @@
+const modal = document.getElementById('contact_modal');
+const sendButton = modal.querySelector('.contact_button');
+const firstName = document.querySelector('.form-firstname');
+const lastName = document.querySelector('.form-lastname');
+const email = document.querySelector('.form-email');
+const message = document.querySelector('.form-message');
+
 function displayModal() {
-  const modal = document.getElementById('contact_modal');
   modal.style.display = 'block';
 }
 
 function closeModal() {
-  const modal = document.getElementById('contact_modal');
   modal.style.display = 'none';
 }
 
-export { displayModal, closeModal };
+sendButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  console.log(
+    `firstName: ${firstName.value};`,
+    `lastname: ${lastName.value};`,
+    `email: ${email.value};`,
+    `message: ${message.value}`,
+  );
+});
