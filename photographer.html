@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -11,24 +11,23 @@
 
   <body>
     <header>
-      <a href="index.html">
-        <img src="assets/images/logo.png" class="logo" />
+      <a href="index.html" tabindex=0>
+        <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" />
       </a>
     </header>
     <main id="main">
-      <div class="photograph-header">
+      <div class="photographer-header">
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
-      <div class="photograph-content">
-        <div class="photograph-content-filter">
-          <label for="filter">Trier par</label>
-          <select name="filter" id="filter">
-            <option value="Popularité">Popularité</option>
-            <option value="Date">Date</option>
-            <option value="Titre">Titre</option>
-          </select>
+      <div class="photographer-content">
+        <div class="filter-container">
+          <p>Trier par</p>
+          <div id="filter">
+            <i class="fa-solid fa-chevron-down filter-arrow"></i>
+            <button class="option option-displayed" aria-label="listbox">Popularité</button>
+          </div>
         </div>
-        <div class="photograph-content-media"></div>
+        <div class="photographer-content-media"></div>
       </div>
       <div class="info-box">
         <div class="image-info-likes">
@@ -43,18 +42,20 @@
       <div class="modal">
         <header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <button class="contact-close-button">
+            <img src="assets/icons/close.svg" />
+          </button>
         </header>
         <form>
           <div>
             <label>Prénom</label>
-            <input class="form-firstname"/>
+            <input class="form-firstname" />
             <label>Nom</label>
-            <input class="form-lastname"/>
+            <input class="form-lastname" />
             <label>Email</label>
-            <input class="form-email"/>
+            <input class="form-email" />
             <label>Votre message</label>
-            <input class="form-message"/>
+            <input class="form-message" />
           </div>
           <button class="contact_button">Envoyer</button>
         </form>
@@ -63,17 +64,22 @@
     <div id="slider-modal">
       <div class="slider-modal-content">
         <div class="slider-main">
-        <div class="medium-container"></div>
-          <img src="assets/icons/close.svg" class="slider-close"/>
+          <div class="medium-container"></div>
+          <button class="slider-close">
+            <img src="assets/icons/close.svg"/>
+          </button>
           <div class="slider-nav">
-            <i class="fa-sharp fa-solid fa-chevron-left"></i>
-            <i class="fa-sharp fa-solid fa-chevron-right"></i>
+            <button class="button-left">
+              <i class="fa-sharp fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="button-right">
+              <i class="fa-sharp fa-solid fa-chevron-right"></i>
+            </button>
           </div>
           <p class="slider-text"></p>
         </div>
       </div>
     </div>
-
     <!-- import fontawesome -->
     <script src="https://kit.fontawesome.com/19b5c527b2.js" crossorigin="anonymous"></script>
 

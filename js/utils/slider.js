@@ -4,11 +4,11 @@ import SliderMedium from '../templates/SliderMedium.js';
 const modal = document.getElementById('slider-modal');
 const sliderContainer = document.querySelector('.slider-main');
 const mediumContainer = modal.querySelector('.medium-container');
-const gallery = document.querySelector('.photograph-content-media');
+const gallery = document.querySelector('.photographer-content');
 const title = document.querySelector('.slider-text');
 const close = document.querySelector('.slider-close');
-const prev = document.querySelector('.fa-chevron-left');
-const next = document.querySelector('.fa-chevron-right');
+const prev = document.querySelector('.button-left');
+const next = document.querySelector('.button-right');
 
 function createMedium(medium, index) {
   const sliderMedium = new SliderMedium(medium, index);
@@ -24,6 +24,7 @@ function openSlider(medium, index) {
 
 function closeSlider() {
   modal.style.display = 'none';
+  gallery.focus();
 }
 
 function changeMedium(value) {
@@ -51,9 +52,22 @@ next.addEventListener('click', () => {
   changeMedium(1);
 });
 
-sliderContainer.addEventListener('keydown', (e) => {
-  if (e.code == '37') console.log('left key pressed');
-  if (e.code == '39') console.log('right key pressed');
+function checkKey(e) {
+  e = e || window.event;
+  if (e.keyCode === 37) {
+    console.log('left key pressed');
+    changeMedium(0);
+  } else if (e.keyCode === 39) {
+    console.log('right key pressed');
+    changeMedium(1);
+  } else if (e.keyCode === 27) {
+    closeSlider();
+  }
+}
+
+document.addEventListener('keydown', (e) => {
+  console.log(e.keyCode);
+  checkKey(e);
 });
 
 close.addEventListener('click', closeSlider);

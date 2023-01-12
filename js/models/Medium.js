@@ -54,14 +54,16 @@ export default class Medium {
     return type;
   }
 
-  addDomInfos(elem) {
+  addDomInfos(elem, link) {
+    const index = media.findIndex((medium) => medium.id === Number(this.id));
+
     elem.setAttribute('src', this.path);
     elem.setAttribute('class', 'image-box-medium');
     elem.setAttribute('alt', this.title);
     elem.setAttribute('data-id', this.id);
+    elem.setAttribute('role', 'link');
 
-    elem.addEventListener('click', () => {
-      const index = media.findIndex((medium) => medium.id === Number(this.id));
+    link.addEventListener('click', () => {
       openSlider(media[index], index);
     });
   }

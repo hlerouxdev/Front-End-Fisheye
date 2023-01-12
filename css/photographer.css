@@ -18,6 +18,7 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
 .modal-bg {
     position: fixed;
     background-color: white;
@@ -57,11 +58,12 @@
     margin-bottom: 100px;
 }
 
-.modal header img {
-    cursor: pointer;
+.contact-close-button {
     position: absolute;
     top: 21px;
     right: 21px;
+    background: transparent;
+    border: none;
 }
 
 .modal header h2 {
@@ -98,8 +100,9 @@ form input {
     border-radius: 5px;
 }
 
-.photograph-header {
+.photographer-header {
     background-color: #FAFAFA;
+    width: 100%;
     max-width: 1440px;
     margin: 0 100px;
     padding: 0 50px;
@@ -109,28 +112,32 @@ form input {
     align-items: center;
 }
 
-.photograph-header h2 {
+.photographer-header h2 {
     color: #911C1C;
 }
 
-.photograph-header img {
+.photographer-header img {
     width: 200px;
     height: 200px;
     border-radius: 100%;
     object-fit: cover;
 }
 
-.photograph-content {
+.photographer-content {
     max-width: 1440px;
     margin: 0 auto 100px;
     padding: 0 100px;
 }
 
-.photograph-content-filter {
+.filter-container {
     margin: 20px 0;
+    display: flex;
+    position: relative;
+    gap: 20px;
+    /* height: 50px; */
 }
 
-.photograph-content-filter label {
+.filter-container p {
     font-weight: bold;
 }
 
@@ -139,16 +146,61 @@ form input {
     border-radius: 5px;
     background-color: #911C1C;
     color: white;
-    padding: 10px 5px;
+    padding: 10px;
+    width: 170px;
+    position: relative;
 }
 
-#filter option {
+#filter button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    font-weight: bold;
+}
+
+#filter a, #filter a:visited {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#filter .filter-arrow {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+#filter .option {
+    display: flex;
+    justify-content: space-between;
     margin: 5px;
     padding: 10px 5px;
     text-align: center;
 }
 
-.photograph-content-media {
+#filter .option:nth-child(3) {
+    margin-top: 10px;
+    border-top: white solid 1px;
+    border-bottom: white solid 1px;
+}
+
+#filter .option:nth-child(4) {
+    padding-bottom: 0;
+}
+
+#filter .option:hover {
+    cursor: pointer;
+}
+
+#filter .option-displayed {
+    padding: 0 5px;
+}
+
+.photographer-content-media {
     gap: 95px;
     display: flex;
     width: 100%;
@@ -156,10 +208,13 @@ form input {
     gap: calc((100% - 1050px)/2);
 }
 
+.photographer-content-media a {
+    display: block;
+}
+
 .image-box {
     position: relative;
     width: 350px;
-    margin-bottom: ;
 }
 
 .image-box-medium {
@@ -187,6 +242,12 @@ form input {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+.image-info-likes button {
+    background-color: transparent;
+    border: none;
+    color: #901C1C;
 }
 
 .image-info-likes i {
@@ -258,7 +319,8 @@ form input {
     top: 50%;
 }
 
-.slider-nav i:hover, .slider-close:hover {
+.slider-nav i:hover,
+.slider-close:hover {
     cursor: pointer;
 }
 

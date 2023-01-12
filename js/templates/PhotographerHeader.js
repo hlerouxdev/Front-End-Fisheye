@@ -7,7 +7,7 @@ export default class PhotographerHeader {
 
   createPhotographerHeaderInfos() {
     const photographerInfo = createElem('div');
-    photographerInfo.setAttribute('class', 'photograph-header-info');
+    photographerInfo.setAttribute('class', 'photographer-header-info');
     photographerInfo.innerHTML = `
     <h1>${this.$photographer.name}</h1>
     <h2>${this.$photographer.city}, ${this.$photographer.country}</h2>

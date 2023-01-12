@@ -1,9 +1,24 @@
-// import { isExternalModuleMain } from "eslint-plugin-import/lib/core/importType.js";
-// import media from "../photographer.js";
+import media from "../photographer.js";
 
-// const filter = document.querySelector('select');
-// filter.addEventListener('click', ()=> {
-//   console.log(filter.options.value);
-// });
+const gallery = document.querySelector('.photographer-content-media');
+const filterOptions = ['Popularité', 'Date', 'Titre'];
 
-// export default { filters, sortMedia };
+function sortMedia(filterName) {
+  console.log(media);
+  if (filterName === 'Popularité') {
+    media.sort((a, b) => b.likes - a.likes);
+  }
+  if (filterName === 'Date') {
+    media.sort((a, b) => b.date - a.date);
+  }
+  if (filterName === 'Titre') {
+    media.sort((a, b) => (b.title < a.title) ? 1 : -1);
+  }
+  gallery.innerHTML = '';
+  displayGallery();
+}
+
+const filter = document.querySelector('.option-displayed');
+filter.addEventListener('click', () => {
+  sortMedia(filter.value);
+});

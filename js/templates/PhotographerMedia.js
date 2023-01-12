@@ -7,7 +7,7 @@ export default class MediaCard {
   }
 
   createImageCard() {
-    const imageBox = createElem('div');
+    const imageBox = createElem('article');
     imageBox.classList.add('image-box');
 
     const imageInfos = document.createElement('div');
@@ -15,24 +15,22 @@ export default class MediaCard {
     imageInfos.innerHTML += `<p>${this.$medium.title}</p> `;
     const imageLikes = document.createElement('div');
     imageLikes.setAttribute('class', 'image-info-likes');
-    imageLikes.innerHTML = `<p>${this.$medium.likes}</p>`;
+    imageLikes.innerHTML = `<p class='image-info-price'>${this.$medium.likes}</p>`;
+    const heartButton = document.createElement('button');
+    heartButton.setAttribute('aria-label', 'likes');
+    heartButton.setAttribute('data-liked', 'false');
     const heart = document.createElement('i');
     heart.setAttribute('class', 'fa-regular fa-heart');
-    heart.setAttribute('aria-label', 'likes');
-    heart.setAttribute('data-liked', 'false');
-    // fa-regular fa-heart
-    heart.addEventListener('click', (e) => {
-      console.log(e.target.getAttribute('data-liked'));
-      const parentElem = e.target.parentElement;
-      if (e.target.getAttribute('data-liked') === 'false') {
-        console.log('like added');
-        e.target.setAttribute('data-liked', 'true');
-        e.target.setAttribute('class', 'fa-solid fa-heart');
+    heartButton.addEventListener('click', (e) => {
+      const parentElem = e.target.closest('div');
+      console.log(parentElem);
+      if (heartButton.getAttribute('data-liked') === 'false') {
+        heartButton.setAttribute('data-liked', 'true');
+        heart.setAttribute('class', 'fa-solid fa-heart');
         this.$medium.likes += 1;
       } else {
-        console.log('like removed');
-        e.target.setAttribute('data-liked', 'false');
-        e.target.setAttribute('class', 'fa-regular fa-heart');
+        heartButton.setAttribute('data-liked', 'false');
+        heart.setAttribute('class', 'fa-regular fa-heart');
         this.$medium.likes -= 1;
       }
       parentElem.querySelector('p').innerHTML = this.$medium.likes;
@@ -40,7 +38,8 @@ export default class MediaCard {
     });
 
     imageInfos.appendChild(imageLikes);
-    imageLikes.appendChild(heart);
+    heartButton.appendChild(heart);
+    imageLikes.appendChild(heartButton);
 
     imageBox.appendChild(this.$medium.createMedium());
     imageBox.appendChild(imageInfos);

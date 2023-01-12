@@ -5,9 +5,9 @@ import PhotographerHeader from './templates/PhotographerHeader.js';
 import MediaCard from './templates/PhotographerMedia.js';
 import MediaFactory from './factories/Mediafactory.js';
 
-const photographerId = +window.location.href.split('id=')[1];
-const header = document.querySelector('.photograph-header');
-const gallery = document.querySelector('.photograph-content-media');
+const photographerId = +window.location.href.split('id=')[1].split('#')[0];
+const header = document.querySelector('.photographer-header');
+const gallery = document.querySelector('.photographer-content-media');
 const totalLikesText = document.querySelector('.total-likes');
 const firstNameText = document.querySelector('.photographer-name');
 
@@ -62,6 +62,14 @@ async function main() {
 
 main();
 
+// Filter
+let filterOpened = false;
+const filterOptions = ['Popularité', 'Date', 'Titre'];
+
+/**
+ *
+ * @param {string} filterName
+ */
 function sortMedia(filterName) {
   console.log(media);
   if (filterName === 'Popularité') {
@@ -71,15 +79,57 @@ function sortMedia(filterName) {
     media.sort((a, b) => b.date - a.date);
   }
   if (filterName === 'Titre') {
-    media.sort((a, b) => (b.title < a.title) ? 1 : -1);
+    media.sort((a, b) => ((b.title < a.title) ? 1 : -1));
   }
   gallery.innerHTML = '';
   displayGallery();
 }
 
-const filter = document.querySelector('select');
-filter.addEventListener('change', () => {
-  sortMedia(filter.value);
+const filter = document.querySelector('#filter');
+const filterArrow = document.querySelector('.filter-arrow');
+const optionDisplayed = document.querySelector('.option');
+
+function closeFilter() {
+  console.log('close');
+  const options = document.querySelectorAll('.option');
+  filterArrow.setAttribute('class', 'fa-solid fa-chevron-down filter-arrow');
+  filter.removeChild(options[1]);
+  filter.removeChild(options[2]);
+  filterOpened = false;
+}
+
+function openfilter() {
+  if (!filterOpened) {
+    console.log('open');
+    filterArrow.setAttribute('class', 'fa-solid fa-chevron-up filter-arrow');
+    filterOptions.forEach((option) => {
+      if (option !== optionDisplayed.innerText) {
+        const newOption = document.createElement('a');
+        newOption.setAttribute('href', '#');
+        newOption.setAttribute('class', 'option');
+        newOption.innerText = option;
+        filter.appendChild(newOption);
+      }
+    });
+    filterOpened = true;
+    const options = document.querySelectorAll('.option');
+    options.forEach((option) => {
+      option.addEventListener('click', (optionEvent) => {
+        if (optionEvent.target.classList !== optionDisplayed.classList) {
+          optionEvent.stopImmediatePropagation();
+          sortMedia(optionEvent.target.innerHTML);
+          optionDisplayed.innerHTML = optionEvent.target.innerHTML;
+          closeFilter();
+        }
+      });
+    });
+  }
+}
+
+filterArrow.addEventListener('click', (e) => {
+  e.stopPropagation();
+  if (filterOpened) closeFilter();
+  else openfilter();
 });
 
 export default media;

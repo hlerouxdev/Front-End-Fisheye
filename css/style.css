@@ -9,6 +9,11 @@ a, a:hover {
     text-decoration: none;
 }
 
+a:active, a:focus {
+    box-shadow: 0px 0px 15px #000;
+    outline: none;
+}
+
 header {
     display: flex;
     flex-direction: row;
@@ -49,12 +54,14 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: visible;
 }
 
 .photographer_section article h2 {
     color: #D3573C;
     font-size: 36px;
     margin: 30px 0 5px;
+    line-break: none;
 }
 
 .photographer_section article p {
