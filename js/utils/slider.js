@@ -16,18 +16,18 @@ function createMedium(medium, index) {
   title.innerText = medium.title;
 }
 
-function openSlider(medium, index) {
+export function openSlider(medium, index) {
   modal.style.display = 'block';
   createMedium(medium, index);
-  sliderContainer.focus();
+  close.focus();
 }
 
-function closeSlider() {
+export function closeSlider() {
   modal.style.display = 'none';
   gallery.focus();
 }
 
-function changeMedium(value) {
+export function changeMedium(value) {
   const currentMedium = document.querySelector('.slider-medium');
   let index = Number(currentMedium.dataset.index);
   if (value === 0) {
@@ -55,10 +55,8 @@ next.addEventListener('click', () => {
 function checkKey(e) {
   e = e || window.event;
   if (e.keyCode === 37) {
-    console.log('left key pressed');
     changeMedium(0);
   } else if (e.keyCode === 39) {
-    console.log('right key pressed');
     changeMedium(1);
   } else if (e.keyCode === 27) {
     closeSlider();
@@ -66,7 +64,6 @@ function checkKey(e) {
 }
 
 document.addEventListener('keydown', (e) => {
-  console.log(e.keyCode);
   checkKey(e);
 });
 

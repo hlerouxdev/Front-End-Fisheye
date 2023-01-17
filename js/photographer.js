@@ -126,6 +126,11 @@ function openfilter() {
   }
 }
 
+filter.addEventListener('click', () => {
+  if (!filterOpened) return openfilter();
+  closeFilter();
+})
+
 filterArrow.addEventListener('click', (e) => {
   e.stopPropagation();
   if (filterOpened) closeFilter();

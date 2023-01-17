@@ -9,7 +9,7 @@ const close = document.querySelector('.contact-close-button');
 
 function displayModal() {
   modal.style.display = 'block';
-  modal.focus();
+  firstName.focus();
 }
 
 function closeModal() {
@@ -28,3 +28,15 @@ sendButton.addEventListener('click', (e) => {
     `message: ${message.value}`,
   );
 });
+
+function checkKey(e) {
+  e = e || window.event;
+  if (e.keyCode === 27) {
+    closeModal();
+  }
+};
+
+document.addEventListener('keydown', (e) => {
+  checkKey(e);
+});
+
