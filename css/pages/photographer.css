@@ -18,7 +18,7 @@
     background-color: #FAFAFA;
     width: 100%;
     max-width: 1440px;
-    margin: 0 100px;
+    margin: 0 auto 100px;
     padding: 0 50px;
     height: 300px;
     display: flex;
@@ -174,12 +174,11 @@
 .info-box-container {
     position: fixed;
     bottom: 0;
-    right: 0;
     display: flex;
     justify-content: flex-end;
     width: 100%;
     max-width: 1440px;
-    margin: 0 100px;
+    margin: 0 auto;
 }
 
 .info-box {

@@ -10,20 +10,23 @@ export default class MediaCard {
     const imageBox = createElem('article');
     imageBox.classList.add('image-box');
 
+    //creates the info element below the image
     const imageInfos = document.createElement('div');
     imageInfos.setAttribute('class', 'image-info');
     imageInfos.innerHTML += `<p>${this.$medium.title}</p> `;
     const imageLikes = document.createElement('div');
     imageLikes.setAttribute('class', 'image-info-likes');
     imageLikes.innerHTML = `<p class='image-info-price'>${this.$medium.likes}</p>`;
+
     const heartButton = document.createElement('button');
     heartButton.setAttribute('aria-label', 'likes');
     heartButton.setAttribute('data-liked', 'false');
     const heart = document.createElement('i');
     heart.setAttribute('class', 'fa-regular fa-heart');
+
+    //click on like event handling
     heartButton.addEventListener('click', (e) => {
       const parentElem = e.target.closest('div');
-      console.log(parentElem);
       if (heartButton.getAttribute('data-liked') === 'false') {
         heartButton.setAttribute('data-liked', 'true');
         heart.setAttribute('class', 'fa-solid fa-heart');

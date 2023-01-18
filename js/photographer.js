@@ -5,7 +5,7 @@ import PhotographerHeader from './templates/PhotographerHeader.js';
 import MediaCard from './templates/PhotographerMedia.js';
 import MediaFactory from './factories/Mediafactory.js';
 
-const photographerId = +window.location.href.split('id=')[1].split('#')[0];
+const photographerId = +window.location.href.split('id=')[1].split('#')[0]; //addition needed to parse the id as an integer instead of a string
 const header = document.querySelector('.photographer-header');
 const gallery = document.querySelector('.photographer-content-media');
 const totalLikesText = document.querySelector('.total-likes');
@@ -68,10 +68,9 @@ const filterOptions = ['Popularité', 'Date', 'Titre'];
 
 /**
  *
- * @param {string} filterName
+ * @param {string} filterName The filter being used
  */
 function sortMedia(filterName) {
-  console.log(media);
   if (filterName === 'Popularité') {
     media.sort((a, b) => b.likes - a.likes);
   }
@@ -90,7 +89,6 @@ const filterArrow = document.querySelector('.filter-arrow');
 const optionDisplayed = document.querySelector('.option');
 
 function closeFilter() {
-  console.log('close');
   const options = document.querySelectorAll('.option');
   filterArrow.setAttribute('class', 'fa-solid fa-chevron-down filter-arrow');
   filter.removeChild(options[1]);
@@ -100,7 +98,6 @@ function closeFilter() {
 
 function openfilter() {
   if (!filterOpened) {
-    console.log('open');
     filterArrow.setAttribute('class', 'fa-solid fa-chevron-up filter-arrow');
     filterOptions.forEach((option) => {
       if (option !== optionDisplayed.innerText) {

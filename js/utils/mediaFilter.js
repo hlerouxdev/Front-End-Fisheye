@@ -1,10 +1,8 @@
 import media from "../photographer.js";
 
 const gallery = document.querySelector('.photographer-content-media');
-const filterOptions = ['Popularité', 'Date', 'Titre'];
 
 function sortMedia(filterName) {
-  console.log(media);
   if (filterName === 'Popularité') {
     media.sort((a, b) => b.likes - a.likes);
   }
