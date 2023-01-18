@@ -6,8 +6,4 @@ export default class MediaFactory {
     if (medium.image) return new Image(medium, firstName);
     if (medium.video) return new Video(medium, firstName);
   }
-
-  get path() {
-    return `assets/images/${this.$firstName}/${this.$path}`;
-  }
 }

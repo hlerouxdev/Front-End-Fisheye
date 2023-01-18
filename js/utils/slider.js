@@ -2,7 +2,6 @@ import media from '../photographer.js';
 import SliderMedium from '../templates/SliderMedium.js';
 
 const modal = document.getElementById('slider-modal');
-const sliderContainer = document.querySelector('.slider-main');
 const mediumContainer = modal.querySelector('.medium-container');
 const gallery = document.querySelector('.photographer-content');
 const title = document.querySelector('.slider-text');

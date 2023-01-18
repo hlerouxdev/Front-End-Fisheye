@@ -114,7 +114,6 @@
 }
 
 .photographer-content-media {
-    gap: 95px;
     display: flex;
     width: 100%;
     flex-wrap: wrap;
@@ -182,7 +181,6 @@
 }
 
 .info-box {
-    
     background-color: #DB8876;
     display: flex;
     justify-content: space-between;
@@ -195,4 +193,10 @@
 
 .info-box p {
     margin: 10;
+}
+
+@media screen and (max-width: 1600px) {
+    .photographer-header {
+        margin: 0 100px;
+    }
 }

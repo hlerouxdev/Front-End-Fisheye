@@ -1,9 +1,9 @@
 const modal = document.getElementById('contact_modal');
 const sendButton = modal.querySelector('.contact_button');
-const firstName = document.querySelector('.form-firstname');
-const lastName = document.querySelector('.form-lastname');
-const email = document.querySelector('.form-email');
-const message = document.querySelector('.form-message');
+const firstName = document.querySelector('#first-name');
+const lastName = document.querySelector('#last-name');
+const email = document.querySelector('#email');
+const message = document.querySelector('#message');
 const logo = document.querySelector('.logo');
 const close = document.querySelector('.contact-close-button');
 
