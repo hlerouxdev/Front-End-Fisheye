@@ -51,6 +51,7 @@ next.addEventListener('click', () => {
   changeMedium(1);
 });
 
+// key presses handling
 function checkKey(e) {
   e = e || window.event;
   if (e.keyCode === 37) {

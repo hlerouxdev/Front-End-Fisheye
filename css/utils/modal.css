@@ -5,6 +5,7 @@
   width: 100vw;
   bottom: 0;
   left: 0;
+  z-index: 2;
 }
 
 .modal {
@@ -24,6 +25,7 @@
   margin-bottom: -450px;
   margin-left: -335px;
   box-shadow: 5 5 5 black;
+  z-index: 3;
 }
 
 .modal header {
@@ -91,6 +93,7 @@ form input {
   width: 100vw;
   bottom: 0;
   left: 0;
+  z-index: 2;
 }
 
 .slider-modal-content {
