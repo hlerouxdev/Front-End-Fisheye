@@ -30,11 +30,12 @@ function checkFields() {
     if (field.value === '') empty = true;
   });
   if (empty) {
-    formMessage.innerText = 'Les champs ne peuvent pas être vides. ';
     formMessage.setAttribute('data-state', 'error');
+    formMessage.innerText = 'Les champs ne peuvent pas être vides. ';
   }
   if (!emailRegex.test(email.value)) {
     empty = true;
+    formMessage.setAttribute('data-state', 'error');
     formMessage.innerText += 'L\'addresse mail doit être valide.';
   }
   return empty;
@@ -58,7 +59,7 @@ sendButton.addEventListener('click', (e) => {
 });
 
 document.addEventListener('keydown', (e) => {
-  if (e.keyCode === 27) {
+  if (e.key === 'Escape') {
     closeModal();
   }
 });

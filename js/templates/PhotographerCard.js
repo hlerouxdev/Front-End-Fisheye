@@ -1,4 +1,8 @@
 export default class PhotographerCard {
+  /**
+   *
+   * @param {object} photographer
+   */
   constructor(photographer) {
     this.$photographer = photographer;
   }

@@ -2,6 +2,11 @@ import media from '../photographer.js';
 import openSlider from '../utils/slider.js'
 
 export default class Medium {
+  /**
+   *
+   * @param {object} data must be a medium from the media array
+   * @param {string} firstName the photographer's first name used to get the path in their folder
+   */
   constructor(data, firstName) {
     this.$id = data.id;
     this.$photographerId = data.photographerId;
@@ -54,6 +59,16 @@ export default class Medium {
     return type;
   }
 
+  // As I walk through the valley of the shadow of death
+  // I take a look at my code and realize there's not much left
+  // 'Cause I've been refactorin' and laughin' so long, that
+  // Even my mentor thinks that my mind is gone
+
+  /**
+   * this function adds attributes common to both images and videos such as their alt, class etc
+   * @param {Node} elem the medium's DOM element
+   * @param {Node} link the link encasing the medium's element
+   */
   addDomInfos(elem, link) {
     const index = media.findIndex((medium) => medium.id === Number(this.id));
 

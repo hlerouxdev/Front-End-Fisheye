@@ -1,4 +1,9 @@
 export default class SliderMedium {
+  /**
+   *
+   * @param {object} medium
+   * @param {number} index used to navigate via the slider
+   */
   constructor(medium, index) {
     this.$medium = medium;
     this.$index = index;

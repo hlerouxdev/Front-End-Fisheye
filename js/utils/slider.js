@@ -26,6 +26,10 @@ export function closeSlider() {
   gallery.focus();
 }
 
+/**
+ *
+ * @param {number} value must be 0 or 1 determines which arrow is being clicked on
+ */
 export function changeMedium(value) {
   const currentMedium = document.querySelector('.slider-medium');
   let index = Number(currentMedium.dataset.index);
@@ -44,6 +48,7 @@ export function changeMedium(value) {
   createMedium(media[index], index);
 }
 
+// 0 for the left arrow (previous) 1 for the right arrow (next)
 prev.addEventListener('click', () => {
   changeMedium(0);
 });
@@ -53,17 +58,17 @@ next.addEventListener('click', () => {
 
 // key presses handling
 function checkKey(e) {
-  e = e || window.event;
-  if (e.keyCode === 37) {
+  if (e.key === 'ArrowLeft') {
     changeMedium(0);
-  } else if (e.keyCode === 39) {
+  } else if (e.key === 'ArrowRight') {
     changeMedium(1);
-  } else if (e.keyCode === 27) {
+  } else if (e.key === 'Escape') {
     closeSlider();
   }
 }
 
 document.addEventListener('keydown', (e) => {
+  console.log(e.key);
   checkKey(e);
 });
 

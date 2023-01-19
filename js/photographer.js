@@ -5,7 +5,7 @@ import PhotographerHeader from './templates/PhotographerHeader.js';
 import MediaCard from './templates/PhotographerMedia.js';
 import MediaFactory from './factories/Mediafactory.js';
 
-const photographerId = +window.location.href.split('id=')[1].split('#')[0]; //addition needed to parse the id as an integer instead of a string
+const photographerId = +window.location.href.split('id=')[1].split('#')[0]; // addition needed to parse the id as an integer instead of a string
 const header = document.querySelector('.photographer-header');
 const gallery = document.querySelector('.photographer-content-media');
 const totalLikesText = document.querySelector('.total-likes');
@@ -125,8 +125,8 @@ function openfilter() {
 
 filter.addEventListener('click', () => {
   if (!filterOpened) return openfilter();
-  closeFilter();
-})
+  return closeFilter();
+});
 
 filterArrow.addEventListener('click', (e) => {
   e.stopPropagation();

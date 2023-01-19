@@ -1,6 +1,10 @@
 import createElem from '../utils/elementCreation.js';
 
 export default class PhotographerHeader {
+  /**
+   *
+   * @param {object} photographer
+   */
   constructor(photographer) {
     this.$photographer = photographer;
   }
