@@ -7,7 +7,7 @@ a, a:hover {
   text-decoration: none;
 }
 
-a:active, a:focus {
+a:active, a:focus, button:hover, button:focus {
   box-shadow: 0px 0px 15px #000;
   outline: none;
 }

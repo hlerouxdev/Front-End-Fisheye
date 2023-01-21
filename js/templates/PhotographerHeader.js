@@ -9,6 +9,7 @@ export default class PhotographerHeader {
     this.$photographer = photographer;
   }
 
+  // to be prepended to the photographer header
   createPhotographerHeaderInfos() {
     const photographerInfo = createElem('div');
     photographerInfo.setAttribute('class', 'photographer-header-info');
@@ -21,6 +22,7 @@ export default class PhotographerHeader {
     return photographerInfo;
   }
 
+  // to be appended to the photographer header
   createPhotographerHeaderPortrait() {
     const portraitElem = document.createElement('img');
     portraitElem.setAttribute('src', this.$photographer.portrait || 'assets/photographers/account.png');

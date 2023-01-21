@@ -9,12 +9,22 @@ const close = document.querySelector('.slider-close');
 const prev = document.querySelector('.button-left');
 const next = document.querySelector('.button-right');
 
+/**
+ *
+ * @param {object} medium
+ * @param {number} index used to navigate via the slider
+ */
 function createMedium(medium, index) {
   const sliderMedium = new SliderMedium(medium, index);
   mediumContainer.innerHTML = sliderMedium.displayMedium();
   title.innerText = medium.title;
 }
 
+/**
+ *
+ * @param {bject} medium
+ * @param {number} index used to navigate via the slider
+ */
 export function openSlider(medium, index) {
   modal.style.display = 'block';
   createMedium(medium, index);
@@ -48,6 +58,8 @@ export function changeMedium(value) {
   createMedium(media[index], index);
 }
 
+close.addEventListener('click', closeSlider);
+
 // 0 for the left arrow (previous) 1 for the right arrow (next)
 prev.addEventListener('click', () => {
   changeMedium(0);
@@ -68,10 +80,7 @@ function checkKey(e) {
 }
 
 document.addEventListener('keydown', (e) => {
-  console.log(e.key);
   checkKey(e);
 });
-
-close.addEventListener('click', closeSlider);
 
 export default openSlider;

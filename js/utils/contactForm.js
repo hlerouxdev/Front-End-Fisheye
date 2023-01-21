@@ -20,9 +20,13 @@ function closeModal() {
   modal.style.display = 'none';
   formMessage.innerText = '';
   formMessage.style.display = 'none';
+  fields.forEach((field) => {
+    field.value = '';
+  });
   logo.focus();
 }
 
+// a simple check function, prevents empty fields and requires a valid email adress to be inputed
 function checkFields() {
   formMessage.innerText = '';
   let empty = false;
@@ -40,9 +44,6 @@ function checkFields() {
   }
   return empty;
 }
-
-modalButton.addEventListener('click', () => displayModal());
-close.addEventListener('click', () => closeModal());
 
 sendButton.addEventListener('click', (e) => {
   e.preventDefault();
@@ -63,3 +64,6 @@ document.addEventListener('keydown', (e) => {
     closeModal();
   }
 });
+
+modalButton.addEventListener('click', () => displayModal());
+close.addEventListener('click', () => closeModal());

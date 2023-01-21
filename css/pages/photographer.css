@@ -1,10 +1,6 @@
 @import url('../global.css');
 @import url('../utils/modal.css');
 
-button:hover, button:focus {
-    box-shadow: 5 5 5 black;
-}
-
 .contact_button {
     font-size: 20px;
     font-weight: bold;
@@ -20,7 +16,6 @@ button:hover, button:focus {
 
 .photographer-header {
     background-color: #FAFAFA;
-    width: 100%;
     max-width: 1440px;
     margin: 0 auto 100px;
     padding: 0 50px;
@@ -63,7 +58,7 @@ button:hover, button:focus {
     border-radius: 5px;
     background-color: #911C1C;
     color: white;
-    padding: 10px;
+    padding: 0 10px 0;
     width: 170px;
     position: absolute;
     left: 75px;
@@ -79,6 +74,11 @@ button:hover, button:focus {
     cursor: pointer;
     outline: inherit;
     font-weight: bold;
+    width: 170px;
+    height: 41px;
+    margin-bottom: -10px;
+    display: flex;
+    align-items: center;
 }
 
 #filter a, #filter a:visited {
@@ -108,7 +108,7 @@ button:hover, button:focus {
 }
 
 #filter .option:nth-child(4) {
-    padding-bottom: 0;
+    padding-bottom: 10px;
 }
 
 #filter .option:hover {
