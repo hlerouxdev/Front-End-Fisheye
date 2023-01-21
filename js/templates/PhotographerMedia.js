@@ -22,7 +22,7 @@ export default class MediaCard {
     imageLikes.innerHTML = `<p class='image-info-price'>${this.$medium.likes}</p>`;
 
     const heartButton = document.createElement('button');
-    heartButton.setAttribute('aria-label', 'likes');
+    heartButton.setAttribute('aria-label', `like pour l'immage ${this.$medium.title}`);
     heartButton.setAttribute('data-liked', 'false');
     const heart = document.createElement('i');
     heart.setAttribute('class', 'fa-regular fa-heart');
@@ -33,10 +33,12 @@ export default class MediaCard {
       if (heartButton.getAttribute('data-liked') === 'false') {
         heartButton.setAttribute('data-liked', 'true');
         heart.setAttribute('class', 'fa-solid fa-heart');
+        heartButton.setAttribute('aria-label', `dislike pour l'immage ${this.$medium.title}`);
         this.$medium.likes += 1;
       } else {
         heartButton.setAttribute('data-liked', 'false');
         heart.setAttribute('class', 'fa-regular fa-heart');
+        heartButton.setAttribute('aria-label', `like pour l'immage ${this.$medium.title}`);
         this.$medium.likes -= 1;
       }
       parentElem.querySelector('p').innerHTML = this.$medium.likes;

@@ -11,5 +11,6 @@ module.exports = {
     'import/no-cycle': ['off'],
     'no-useless-escape': ['off'],
     'no-param-reassign': ['off'],
+    'no-constructor-return': ['off'],
   },
 };
