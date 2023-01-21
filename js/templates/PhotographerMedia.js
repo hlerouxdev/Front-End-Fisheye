@@ -10,7 +10,9 @@ export default class MediaCard {
     const imageBox = createElem('article');
     imageBox.classList.add('image-box');
 
-    // I used document.createElement instead of a simpler innerHTML in order to add the eventListeners dynamically
+    // I used document.createElement instead of a simpler
+    // innerHTML in order to add the eventListeners dynamically
+
     // creates the info element below the image
     const imageInfos = document.createElement('div');
     imageInfos.setAttribute('class', 'image-info');
